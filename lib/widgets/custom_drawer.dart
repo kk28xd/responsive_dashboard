@@ -14,54 +14,56 @@ class CustomDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width * .7,
-      color: const Color(0xffFFFFFF),
-      child: const CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child: UserInfoListTile(
-              listTileModel: UserInfoModel(
-                  image: Assets.listTileFrame,
-                  title: 'Lekan Okeowo',
-                  subtitle: 'demo@gmail.com'),
+    return SafeArea(
+      child: Container(
+        width: MediaQuery.of(context).size.width * .7,
+        color: const Color(0xffFFFFFF),
+        child: const CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: UserInfoListTile(
+                listTileModel: UserInfoModel(
+                    image: Assets.listTileFrame,
+                    title: 'Lekan Okeowo',
+                    subtitle: 'demo@gmail.com'),
+              ),
             ),
-          ),
-          SliverToBoxAdapter(
-            child: SizedBox(
-              height: 8,
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: 8,
+              ),
             ),
-          ),
-          DrawerItemListView(),
-          // const Spacer(),
-          SliverFillRemaining(
-            hasScrollBody: false,
-            child: Column(
-              children: [
-                Spacer(),
-                SizedBox(
-                  height: 20,
-                ),
-                InActiveDrawerItem(
-                  drawerItemModel: DrawerItemModel(
-                      title: 'Setting system',
-                      image: Assets.imagesSettingSystem),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                InActiveDrawerItem(
-                  drawerItemModel: DrawerItemModel(
-                      title: 'Logout account',
-                      image: Assets.imagesLogoutAccount),
-                ),
-                SizedBox(
-                  height: 48,
-                ),
-              ],
-            ),
-          )
-        ],
+            DrawerItemListView(),
+            // const Spacer(),
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: Column(
+                children: [
+                  Spacer(),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  InActiveDrawerItem(
+                    drawerItemModel: DrawerItemModel(
+                        title: 'Setting system',
+                        image: Assets.imagesSettingSystem),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  InActiveDrawerItem(
+                    drawerItemModel: DrawerItemModel(
+                        title: 'Logout account',
+                        image: Assets.imagesLogoutAccount),
+                  ),
+                  SizedBox(
+                    height: 48,
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
